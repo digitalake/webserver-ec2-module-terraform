@@ -1,7 +1,6 @@
 #### INSTANCE HTTP ####
 
 # Create instance
-#tfsec:ignore:aws-ec2-enable-at-rest-encryption tfsec:ignore:aws-ec2-enforce-http-token-imds
 resource "aws_instance" "http" {
   for_each      = var.http_instance_names
   ami           = data.aws_ami.ubuntu.id

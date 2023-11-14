@@ -1,7 +1,6 @@
 # Network configuration
 
 # VPC creation
-#tfsec:ignore:aws-ec2-require-vpc-flow-logs-for-all-vpcs
 resource "aws_vpc" "terraform" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true

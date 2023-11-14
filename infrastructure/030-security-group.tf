@@ -1,7 +1,6 @@
 # Security group configuration
 
 # Default administration port
-#tfsec:ignore:aws-ec2-no-public-ingress-sgr tfsec:ignore:aws-ec2-no-public-egress-sgr tfsec:ignore:aws-ec2-add-description-to-security-group-rule
 resource "aws_security_group" "administration" {
   name        = "administration"
   description = "Allow default administration service"
@@ -36,7 +35,6 @@ resource "aws_security_group" "administration" {
 }
 
 # Open web port
-#tfsec:ignore:aws-ec2-no-public-ingress-sgr tfsec:ignore:aws-ec2-no-public-egress-sgr tfsec:ignore:aws-ec2-add-description-to-security-group-rule
 resource "aws_security_group" "web" {
   name        = "web"
   description = "Allow web incgress trafic"
@@ -71,7 +69,6 @@ resource "aws_security_group" "web" {
 }
 
 # Open database port
-#tfsec:ignore:aws-ec2-no-public-ingress-sgr tfsec:ignore:aws-ec2-no-public-egress-sgr tfsec:ignore:aws-ec2-add-description-to-security-group-rule
 resource "aws_security_group" "db" {
   name        = "db"
   description = "Allow db incgress trafic"
