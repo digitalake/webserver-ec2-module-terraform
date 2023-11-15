@@ -5,6 +5,7 @@ jobs:
     working_directory: /src
     docker:
       - image: ivanopulo/tfseq-cicd-git:0.0.1
+    resource_class: digitalake/container-executor
     steps:
       - checkout
       - run:
@@ -17,6 +18,7 @@ jobs:
     working_directory: /tmp/project
     docker:
       - image: ivanopulo/terraform-envsubst:0.1
+    resource_class: digitalake/container-executor
     steps:
       - checkout
       - run:
@@ -37,6 +39,7 @@ jobs:
   apply:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    resource_class: digitalake/container-executor
     steps:
       - attach_workspace:
           at: .
@@ -54,6 +57,7 @@ jobs:
     working_directory: /go/src/terratest
     docker:
       - image: ivanopulo/terratest:0.0.4
+    resource_class: digitalake/container-executor
     steps:
       - attach_workspace:
           at: .
@@ -65,6 +69,7 @@ jobs:
   plan-destroy:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    resource_class: digitalake/container-executor
     steps:
       - attach_workspace:
           at: .
@@ -81,6 +86,7 @@ jobs:
   destroy:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    resource_class: digitalake/container-executor
     steps:
       - attach_workspace:
           at: .
